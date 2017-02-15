@@ -1,0 +1,7 @@
+---
+# defaults file for mysql-backup
+
+#mysql_backup_dir:
+mysql_backup_filename_format: "{{ ansible_hostname }}-%Y%m%d-%H%M%S.mysqldump"
+mysql_backup_frequency: daily
+mysql_backup_minimum_expected_size: 1

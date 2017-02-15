@@ -1,0 +1,26 @@
+---
+- hosts: all
+
+  # If testing in Docker cron won't be installed
+  pre_tasks:
+  - name: Install cron
+    yum:
+      pkg: cronie
+      state: present
+
+  roles:
+    - role: ansible-role-mysql-backup
+      mysql_backup_dir: /backup/mysql
+      mysql_backup_filename_format: "database-%Y%m%d.mysqldump"
+
+  # Install and run Mariadb for testing
+  tasks:
+  - name: Install mariadb
+    yum:
+      pkg: mariadb-server
+      state: present
+
+  - name: Run mariadb
+    service:
+      name: mariadb
+      state: started

@@ -9,12 +9,12 @@ def test_run_backup_script(Command, File, Sudo):
     # Note there's a small chance this test will incorrectly fail if it's run
     # run at midnight
     d = datetime.now()
-    expected = '/backup/mysql/database-%s.mysqldump' % d.strftime('%Y%m%d')
+    expected = '/backup/postgresql/database-%s.pgdump' % d.strftime('%Y%m%d')
 
     with Sudo():
-        out = Command.check_output('/etc/cron.daily/mysql-backup')
+        out = Command.check_output('/etc/cron.daily/postgresql-backup')
     assert not out
 
     f = File(expected)
     assert f.is_file
-    assert f.size > 500000
+    assert f.size > 2000

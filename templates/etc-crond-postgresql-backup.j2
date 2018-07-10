@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+# Dump all PostgreSQL databases
+
+OUTPUT="{{ postgresql_backup_dir | quote }}/$(date +{{ postgresql_backup_filename_format | quote }})"
+su postgres -c "/usr/bin/pg_dumpall -f \"$OUTPUT.tmp\""
+
+size=$(stat -c%s "$OUTPUT.tmp")
+if [ $size -lt {{ postgresql_backup_minimum_expected_size }} ]; then
+    echo "ERROR: Database backup '$OUTPUT.tmp' is less than {{ postgresql_backup_minimum_expected_size }} bytes"
+    exit 2
+fi
+
+mv "$OUTPUT.tmp" "$OUTPUT"

@@ -1,22 +1,25 @@
 ---
-# tasks file for mysql-backup
+# tasks file for postgresql-backup
 
-- name: mysql backup | install mariadb client
-  become: yes
-  yum:
-    pkg: mariadb
-    state: present
-
-- name: mysql backup | create backup directory
+- name: postgresql backup | create backup directory
   become: yes
   file:
-    path: "{{ mysql_backup_dir }}"
+    path: "{{ postgresql_backup_dir }}"
+    # Don't set permissions here due to recurse
     recurse: yes
     state: directory
 
-- name: mysql backup | create cron job
+- name: postgresql backup | set backup directory permissions
+  become: yes
+  file:
+    path: "{{ postgresql_backup_dir }}"
+    state: directory
+    owner: postgres
+    mode: 0700
+
+- name: postgresql backup | create cron job
   become: yes
   template:
-    src: etc-crond-mysql-backup.j2
-    dest: /etc/cron.{{ mysql_backup_frequency }}/mysql-backup
+    src: etc-crond-postgresql-backup.j2
+    dest: /etc/cron.{{ postgresql_backup_frequency }}/postgresql-backup
     mode: 0755

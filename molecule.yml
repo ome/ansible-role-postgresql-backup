@@ -1,4 +1,8 @@
 ---
+dependency:
+  name: galaxy
+  requirements_file: tests/requirements.yml
+
 driver:
   name: docker
 
@@ -13,11 +17,11 @@ vagrant:
         memory: 512
         cpus: 1
   instances:
-    - name: mysql-backup
+    - name: postgresql-backup
 
 docker:
   containers:
-  - name: mysql-backup
+  - name: postgresql-backup
     image: centos/systemd
     image_version: latest
     privileged: True

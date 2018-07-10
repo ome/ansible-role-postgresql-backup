@@ -1,9 +1,9 @@
 galaxy_info:
   author: ome-devel@lists.openmicroscopy.org.uk
-  description: Setup a cron job for regular full Mysql/Mariadb database dumps
+  description: Setup a cron job for regular full PostgreSQL database dumps
   company: Open Microscopy Environment
   license: BSD
-  min_ansible_version: 2.1
+  min_ansible_version: 2.3
   platforms:
   - name: EL
     versions:

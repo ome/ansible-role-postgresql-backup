@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: postgresql_backup
   author: ome-devel@lists.openmicroscopy.org.uk
   description: Setup a cron job for regular full PostgreSQL database dumps
   company: Open Microscopy Environment

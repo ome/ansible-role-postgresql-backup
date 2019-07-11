@@ -1,6 +1,9 @@
 PostgreSQL Backup
 =================
 
+[![Build Status](https://travis-ci.org/ome/ansible-role-postgresql-backup.svg)](https://travis-ci.org/ome/ansible-role-postgresql-backup)
+[![Ansible Role](https://img.shields.io/ansible/role/41998.svg)](https://galaxy.ansible.com/ome/postgresql_backup/)
+
 Setup a cron job for regular full PostgreSQL database dumps.
 
 Assumes the local `postgres` has password-less access to all databases (this is the default when installing PostgreSQL server).
@@ -35,7 +38,7 @@ Example playbook
     # in daily backups on a rolling weekly cycle
     - hosts: postgresql-servers
       roles:
-      - role: postgresql-backup
+      - role: ome.postgresql_backup
         postgresql_backup_dir: /nfs/backups
         postgresql_backup_filename_format: "{{ ansible_hostname }}-%a.pgdump"
         postgresql_backup_minimum_expected_size: 100000

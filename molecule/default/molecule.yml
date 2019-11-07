@@ -6,7 +6,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance
+  - name: postgresql-backup
     image: centos/systemd:latest
     command: /sbin/init
     privileged: true

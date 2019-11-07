@@ -11,7 +11,8 @@ def test_run_backup_script(host):
     # Note there's a small chance this test will incorrectly fail if it's run
     # run at midnight
     d = datetime.now()
-    expected = '/backup/postgresql/instance-%s.pgdump' % d.strftime('%Y%m%d')
+    expected = ('/backup/postgresql/postgresql-backup-%s.pgdump' %
+                d.strftime('%Y%m%d'))
 
     with host.sudo():
         out = host.run('/etc/cron.daily/postgresql-backup')

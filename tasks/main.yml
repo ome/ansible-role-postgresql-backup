@@ -2,15 +2,15 @@
 # tasks file for postgresql-backup
 
 - name: postgresql backup | create backup directory
-  become: yes
+  become: true
   file:
     path: "{{ postgresql_backup_dir }}"
     # Don't set permissions here due to recurse
-    recurse: yes
+    recurse: true
     state: directory
 
 - name: postgresql backup | set backup directory permissions
-  become: yes
+  become: true
   file:
     path: "{{ postgresql_backup_dir }}"
     state: directory
@@ -18,7 +18,7 @@
     mode: 0700
 
 - name: postgresql backup | create cron job
-  become: yes
+  become: true
   template:
     src: etc-crond-postgresql-backup.j2
     dest: /etc/cron.{{ postgresql_backup_frequency }}/postgresql-backup

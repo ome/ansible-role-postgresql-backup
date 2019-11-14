@@ -1,0 +1,18 @@
+---
+- name: Converge
+  hosts: all
+
+  # If testing in Docker cron won't be installed
+  pre_tasks:
+    - name: Install cron
+      become: true
+      yum:
+        name: cronie
+        state: present
+
+  roles:
+    - role: ome.postgresql
+    - role: ansible-role-postgresql-backup
+      postgresql_backup_dir: /backup/postgresql
+      postgresql_backup_filename_format: >-
+        {{ ansible_hostname }}-%Y%m%d.pgdump

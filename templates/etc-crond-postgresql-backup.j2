@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Dump all PostgreSQL databases
 
 OUTPUT="{{ postgresql_backup_dir | quote }}/$(date +{{ postgresql_backup_filename_format | quote }})"

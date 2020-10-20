@@ -10,10 +10,18 @@ platforms:
     image: centos/systemd:latest
     command: /sbin/init
     privileged: true
+  - name: postgresql-backupgz
+    image: centos/systemd:latest
+    command: /sbin/init
+    privileged: true
 provisioner:
   name: ansible
   lint:
     name: ansible-lint
+  inventory:
+    host_vars:
+      postgresql-backupgz:
+        postgresql_backup_compress: true
 scenario:
   name: default
 verifier:

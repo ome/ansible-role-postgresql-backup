@@ -2,7 +2,11 @@
 # Dump all PostgreSQL databases
 
 OUTPUT="{{ postgresql_backup_dir | quote }}/$(date +{{ postgresql_backup_filename_format | quote }})"
+{% if postgresql_backup_compress %}
+su postgres -c "/usr/bin/pg_dumpall | gzip -c > \"$OUTPUT.tmp\""
+{% else %}
 su postgres -c "/usr/bin/pg_dumpall -f \"$OUTPUT.tmp\""
+{% endif %}
 
 size=$(stat -c%s "$OUTPUT.tmp")
 if [ $size -lt {{ postgresql_backup_minimum_expected_size }} ]; then

@@ -28,6 +28,7 @@ Optional:
 - `postgresql_backup_frequency`: This must match one of the standard `/etc/cron.*` directories, typically either `daily` (default), `hourly`, `weekly` or `monthly`.
 - `postgresql_backup_minimum_expected_size`: The minimum size in bytes of the backup file.
   The cron job will return an error if the file is smaller than this.
+- `postgresql_backup_compress`: If `True` compress the output using gzip, default `False`.
 
 
 Example playbook

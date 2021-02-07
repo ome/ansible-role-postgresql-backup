@@ -1,7 +1,7 @@
 PostgreSQL Backup
 =================
 
-[![Build Status](https://travis-ci.org/ome/ansible-role-postgresql-backup.svg)](https://travis-ci.org/ome/ansible-role-postgresql-backup)
+[![Actions Status](https://github.com/ome/ansible-role-postgresql-backup/workflows/Molecule/badge.svg)](https://github.com/ome/ansible-role-postgresql-backup/actions)
 [![Ansible Role](https://img.shields.io/ansible/role/42001.svg)](https://galaxy.ansible.com/ome/postgresql_backup/)
 
 Setup a cron job for regular full PostgreSQL database dumps.

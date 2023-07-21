@@ -15,7 +15,7 @@
     - role: ome.postgresql
       postgresql_version: "10"
 
-    - role: ansible-role-postgresql-backup
+    - role: ome.postgresql_backup
       postgresql_backup_dir: /backup/postgresql
       postgresql_backup_filename_format: >-
         {{ ansible_hostname }}-%Y%m%d.pgdump{{

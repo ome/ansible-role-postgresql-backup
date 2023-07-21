@@ -13,7 +13,7 @@
   roles:
 
     - role: ome.postgresql
-      postgresql_version: "10"
+      postgresql_version: "13"
 
     - role: ome.postgresql_backup
       postgresql_backup_dir: /backup/postgresql

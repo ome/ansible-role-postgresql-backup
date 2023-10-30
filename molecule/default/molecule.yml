@@ -9,14 +9,14 @@ lint: |
     flake8
 platforms:
   - name: postgresql-backup
-    image: centos/systemd:latest
+    image: eniocarboni/docker-rockylinux-systemd:9
     command: /sbin/init
     privileged: true
     cgroupns_mode: host
     tmpfs:
       - /sys/fs/cgroup
   - name: postgresql-backupgz
-    image: centos/systemd:latest
+    image: eniocarboni/docker-rockylinux-systemd:9
     command: /sbin/init
     privileged: true
     cgroupns_mode: host

@@ -6,13 +6,14 @@
   pre_tasks:
     - name: Install cron
       become: true
-      yum:
+      ansible.builtin.dnf:
+        update_cache: true
         name: cronie
         state: present
 
   roles:
 
-    - role: ome.postgresql
+    - role: postgresql
       postgresql_version: "13"
 
     - role: ome.postgresql_backup

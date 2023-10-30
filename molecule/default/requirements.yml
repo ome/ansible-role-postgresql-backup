@@ -1,2 +1,5 @@
 ---
-- src: ome.postgresql
+
+- name: postgresql
+  src: https://github.com/khaledk2/ansible-role-postgresql/
+  version: update_to_use_rockylinux9_and_ubuntu2204

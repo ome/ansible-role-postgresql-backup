@@ -12,10 +12,16 @@ platforms:
     image: centos/systemd:latest
     command: /sbin/init
     privileged: true
+    cgroupns_mode: host
+    tmpfs:
+      - /sys/fs/cgroup
   - name: postgresql-backupgz
     image: centos/systemd:latest
     command: /sbin/init
     privileged: true
+    cgroupns_mode: host
+    tmpfs:
+      - /sys/fs/cgroup
 provisioner:
   name: ansible
   lint:

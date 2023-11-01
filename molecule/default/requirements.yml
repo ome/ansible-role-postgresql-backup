@@ -1,4 +1,3 @@
 ---
 
 - src: ome.postgresql
-- src: ome.postgresql_client

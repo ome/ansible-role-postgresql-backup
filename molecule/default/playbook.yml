@@ -13,7 +13,7 @@
 
   roles:
 
-    - role: postgresql
+    - role: ome.postgresql
       postgresql_version: "13"
 
     - role: ome.postgresql_backup

@@ -6,7 +6,8 @@
   pre_tasks:
     - name: Install cron
       become: true
-      yum:
+      ansible.builtin.dnf:
+        update_cache: true
         name: cronie
         state: present
 

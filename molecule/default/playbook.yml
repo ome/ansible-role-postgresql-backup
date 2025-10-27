@@ -12,7 +12,7 @@
 
   roles:
 
-    - role: ome.postgresql
+    - role: postgresql
       postgresql_version: "16"
 
     - role: ome.postgresql_backup

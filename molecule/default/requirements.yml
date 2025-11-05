@@ -1,6 +1,3 @@
 ---
 
-# - src: ome.postgresql
-- name: postgresql
-  src: https://github.com/pwalczysko/ansible-role-postgresql
-  version: p312
+- src: ome.postgresql
